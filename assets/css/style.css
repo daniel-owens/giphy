@@ -1,0 +1,40 @@
+.container {
+	padding-top: 30px;
+
+}
+.form-container {
+	overflow: hidden;
+}
+
+#buttons-view {	
+	float: left;
+}
+
+.animal-btn {
+	border-radius: 12px;
+	font-family: Georgia; 
+	background-color: #008080;
+	color: white;		
+}
+
+#add-animal {
+	border-radius: 12px;
+	font-family: Georgia; 
+	background-color: #008080;
+	color: white;
+	float: right;
+}
+
+#animal-form {
+	float: right;
+}
+
+.animal {
+	margin: 5px;
+	float: left;
+}
+
+.animal-image {
+	width: auto;
+	max-height: 250px;
+}
