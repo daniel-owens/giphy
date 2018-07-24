@@ -1,41 +1,23 @@
 
-
- 
 var animals = ["red panda", "goat", "dolphin", "giraffe", "bunny", "kitten", "puppy", "unicorn"];
-
-
 
 function renderButtons() {
 
- 
-  $("#buttons-view").empty();
-
-  
-  for (var i = 0; i < animals.length; i++) {
-
-   
-    var a = $("<button>");
-   
-    a.addClass("animal-btn");
-    
-    a.attr("data-name", animals[i]);
-   
-    a.text(animals[i]);
-    
+  $("#buttons-view").empty(); 
+  for (var i = 0; i < animals.length; i++) { 
+    var a = $("<button>");  
+    a.addClass("animal-btn");   
+    a.attr("data-name", animals[i]);  
+    a.text(animals[i]);   
     $("#buttons-view").prepend(a);
   }
 }
 
 
 $("#add-animal").on("click", function(event) {
-  event.preventDefault();
-  
-  var animal = $("#animal-input").val().trim();
-
- 
-  animals.push(animal);
-
-  
+  event.preventDefault(); 
+  var animal = $("#animal-input").val().trim() 
+  animals.push(animal); 
   renderButtons();
 });
 
@@ -56,25 +38,21 @@ function displayAnimalInfo() {
     }).then(function(response) {
     	sexyNumber = sexyNumber++;
 
-    	var animalDiv = $("<div class='animal'>");
-    	
-
+    	var animalDiv = $("<div class='animal'>");   	
     	var imgURL = response.data[0].images.downsized.url;
     	var dataStill = response.data[0].images.downsized_still.url;
-
     	var image = $("<img>").attr("src", imgURL);
-    	image.attr('data-still', dataStill);
+    	
+        image.attr('data-still', dataStill);
     	image.attr('data-animate', imgURL);
     	image.attr('data-state', 'animate');
     	image.attr('class', 'animal-image');
-    	var sexyId = 'animal-image-' + sexyNumber
-    	image.attr('id', sexyId)
-
-    	animalDiv.prepend(image);
     	
-
+        var sexyId = 'animal-image-' + sexyNumber
+    	
+        image.attr('id', sexyId)
+    	animalDiv.prepend(image);   	
     	$("#animals-view").prepend(animalDiv);
-
     	$('#' + sexyId).on("click", function() {
    	  
     	  var state = $(this).attr("data-state");
